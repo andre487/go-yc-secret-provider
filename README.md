@@ -1,4 +1,4 @@
-# GoYandex Cloud secret provider
+# Go Yandex Cloud secret provider
 
 API for Yandex Cloud LockBox
 
