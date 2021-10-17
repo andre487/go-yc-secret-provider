@@ -72,7 +72,10 @@ func getProdIamToken() (string, error) {
 	}
 
 	var tokenData IamTokenData
-	json.Unmarshal(resultBytes, &tokenData)
+	err = json.Unmarshal(resultBytes, &tokenData)
+	if err != nil {
+		return "", newIamError(err)
+	}
 
 	if len(tokenData.AccessToken) == 0 {
 		return "", errors.New("IAM token error: no IAM token")

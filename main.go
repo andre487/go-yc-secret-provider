@@ -93,6 +93,9 @@ func requestLockBox(secId string) (LockBoxResult, error) {
 	}
 
 	var result LockBoxResult
-	json.Unmarshal(resultBytes, &result)
+	err = json.Unmarshal(resultBytes, &result)
+	if err != nil {
+		return LockBoxResult{}, errors.New("LockBox request error: " + err.Error())
+	}
 	return result, nil
 }
